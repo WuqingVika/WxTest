@@ -11,5 +11,10 @@ Page({
     },
     onHide:function(){
         console.log("w navigateTO onHide");
+    },
+    onTextTap:function(event){
+        //如果子元素响应，父元素也会响应.反之，子不会。
+        console.log("w welcome onTextTap ");
+        
     }
 });
