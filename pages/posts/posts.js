@@ -17,7 +17,7 @@ Page({
     })
 
    // this.data.postList=postData.postList
-   //这种方法需要将页面中postKey改为postList
+   //这种方法需要将页面中postKey改为postList 我这里不能使用
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
