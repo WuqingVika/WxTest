@@ -10,6 +10,7 @@ var local_data_base = [{
     },*/
     avatar: "/images/avatar/2.png",
     imgSrc: "/images/post/bl.png",
+    postId:0
     //imgCondition:true//wx:if="{{imgCondition}}"
 },
 {
@@ -20,6 +21,7 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
+    postId:1
 },
 {
     date: "2017-10-26",
@@ -29,6 +31,7 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
+    postId:2
 },
 {
     date: "2017-10-26",
@@ -38,6 +41,7 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
+    postId:3
 },
 {
     date: "2017-10-26",
@@ -47,6 +51,7 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
+    postId:4
 },
 ];
 //按住alt+shift+f格式化代码

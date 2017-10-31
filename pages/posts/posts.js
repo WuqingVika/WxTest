@@ -34,6 +34,15 @@ Page({
   onUnload:function(){
     // 生命周期函数--监听页面卸载
     console.log("onunload");
+  },
+  onPostTap:function(event){
+    // var postId=event.currentTarget.dataset.postId;//这样postId为undefined.
+    //因为它会把页面上的连字全变成小写
+    var postId=event.currentTarget.dataset.postid;
+    console.log("onPostTap"+postId);
+    wx.navigateTo({
+        url:"post-detail/post-detail"
+      });
   }
 
 })
