@@ -10,8 +10,12 @@ var local_data_base = [{
     },*/
     avatar: "/images/avatar/2.png",
     imgSrc: "/images/post/bl.png",
-    postId:0
-    //imgCondition:true//wx:if="{{imgCondition}}"
+    postId: 0,
+    headImgSrc: "/images/post/crab.png",
+    author: "wuqingvika1",
+    dateTime: "24小时前",
+    detail: "文章的正文嘎吱右右枯叶 右在地在地嚅的我的是是女神神 一产的要喹中顺嘎嘎思想界dkfs国曙地地呆呆 圆顶地"
+    //imgCondition:true//wx:if="{{imgCondition}}",
 },
 {
     date: "2017-10-26",
@@ -21,7 +25,11 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
-    postId:1
+    postId: 1,
+    headImgSrc: "/images/post/crab.png",
+    author: "wuqingvika2",
+    dateTime: "23小时前",
+    detail: "文章的正文嘎吱右右枯叶 右在地在地嚅的我的是是女神神 一产的要喹中顺嘎嘎思想界dkfs国曙地地呆呆 圆顶地"
 },
 {
     date: "2017-10-26",
@@ -31,7 +39,11 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
-    postId:2
+    postId: 2,
+    headImgSrc: "/images/post/crab.png",
+    author: "wuqingvika3",
+    dateTime: "22小时前",
+    detail: "文章的正文嘎吱右右枯叶 右在地在地嚅的我的是是女神神 一产的要喹中顺嘎嘎思想界dkfs国曙地地呆呆 圆顶地"
 },
 {
     date: "2017-10-26",
@@ -41,7 +53,11 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
-    postId:3
+    postId: 3,
+    headImgSrc: "/images/post/crab.png",
+    author: "wuqingvika4",
+    dateTime: "21小时前",
+    detail: "文章的正文嘎吱右右枯叶 右在地在地嚅的我的是是女神神 一产的要喹中顺嘎嘎思想界dkfs国曙地地呆呆 圆顶地"
 },
 {
     date: "2017-10-26",
@@ -51,13 +67,17 @@ var local_data_base = [{
     collection: "97",
     avatar: "/images/avatar/5.png",
     imgSrc: "/images/post/crab.png",
-    postId:4
+    postId: 4,
+    headImgSrc: "/images/post/crab.png",
+    author: "wuqingvika5",
+    dateTime: "20小时前",
+    detail: "文章的正文嘎吱右右枯叶 右在地在地嚅的我的是是女神神 一产的要喹中顺嘎嘎思想界dkfs国曙地地呆呆 圆顶地"
 },
 ];
 //按住alt+shift+f格式化代码
 
 //var a="2";
-module.exports={
-    postList:local_data_base,
+module.exports = {
+    postList: local_data_base,
     //a_key:a
 }
