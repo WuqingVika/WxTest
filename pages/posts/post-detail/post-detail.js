@@ -41,6 +41,13 @@ Page({
         wx.setStorageSync('posts_collected', postsCollected);
         //更新页面显示状态
         this.setData({collected:postCollected});
+
+        //弹框提示
+        wx.showToast({
+            title:postCollected?"收藏成功":"取消成功",
+            icon:"success",
+            duration:1000
+        })
     },
     // onShare:function(event){
     //     //wx.clearStorageSync();//清空所有缓存
