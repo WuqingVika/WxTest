@@ -71,9 +71,24 @@ Page({
             icon: "success",
             duration: 1000
         })
-    }
-    // onShare:function(event){
-    //     //wx.clearStorageSync();//清空所有缓存
-    //     wx.removeStorageSync('key');//移除key所对应的缓存
-    // }
+    },
+    onShare:function(event){
+        //wx.clearStorageSync();//清空所有缓存
+        //wx.removeStorageSync('key');//移除key所对应的缓存
+        var itemList=["分享到微信好友","分享到微博"];
+        wx.showActionSheet({
+            itemList:itemList,
+            itemColor:"#405f80",
+            success: function(res) {
+                wx.showModal({
+                    title:"用户 "+itemList[res.tapIndex],//tapIndex 用户点击的按钮，从上到下的顺序，从0开始
+                    content:"用户是否取消?"+res.cancel+"现在无法实现分享功能哦"
+                })
+                },
+            
+            fail: function(res) {
+                console.log(res.errMsg)
+            }
+        })
+     }
 })
