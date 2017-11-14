@@ -37,18 +37,41 @@ Page({
         //取到当前文章的状态，取反
         postCollected = !postCollected;
         //将新的状态塞进缓存修改
- postsCollected[this.data.postCurrentId]=postCollected;
-        wx.setStorageSync('posts_collected', postsCollected);
-        //更新页面显示状态
-        this.setData({collected:postCollected});
+        postsCollected[this.data.postCurrentId] = postCollected;
+        //this.showToast(postsCollected,postCollected);
+        this.showModal(postsCollected, postCollected);
+    },
+    showModal: function (postsCollected, postCollected) {
+        var that = this;
+        wx.showModal({
+            title: "收藏",
+            content: postCollected ? "收藏该文章?" : "取消收藏该文章?",
+            cancelColor: "#333",
+            confirmColor: "#405f80",
+            showCancel: "true",
+            cancelText: "取消",
+            confirmText: "确认",
+            success: function (res) {
+                if (res.confirm) {
+                    wx.setStorageSync('posts_collected', postsCollected);
+                    //更新页面显示状态
+                    that.setData({ collected: postCollected });
+                }
+            }
 
-        //弹框提示
-        wx.showToast({
-            title:postCollected?"收藏成功":"取消成功",
-            icon:"success",
-            duration:1000
         })
     },
+    showToast: function (postsCollected, postCollected) {
+        wx.setStorageSync('posts_collected', postsCollected);
+        //更新页面显示状态
+        this.setData({ collected: postCollected });
+        //弹框提示
+        wx.showToast({
+            title: postCollected ? "收藏成功" : "取消成功",
+            icon: "success",
+            duration: 1000
+        })
+    }
     // onShare:function(event){
     //     //wx.clearStorageSync();//清空所有缓存
     //     wx.removeStorageSync('key');//移除key所对应的缓存
