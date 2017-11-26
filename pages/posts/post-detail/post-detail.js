@@ -30,7 +30,10 @@ Page({
         //     name:"wuqingvika",
         //     age:23
         // })
+        this.getPostCollectedAsync();
 
+    },
+    getPostCollectedSync: function () {//同步
         //1.先获取缓存中当前文章的状态
         var postsCollected = wx.getStorageSync('posts_collected');
         var postCollected = postsCollected[this.data.postCurrentId];
@@ -40,6 +43,25 @@ Page({
         postsCollected[this.data.postCurrentId] = postCollected;
         //this.showToast(postsCollected,postCollected);
         this.showModal(postsCollected, postCollected);
+    },
+    getPostCollectedAsync: function () {//异步
+        var that = this;
+        //1.先获取缓存中当前文章的状态
+        wx.getStorage({
+            key: 'posts_collected',
+            success: function (res) {
+                var postsCollected = res.data;
+                var postCollected = postsCollected[that.data.postCurrentId];
+                //取到当前文章的状态，取反
+                postCollected = !postCollected;
+                //将新的状态塞进缓存修改
+                postsCollected[that.data.postCurrentId] = postCollected;
+                //this.showToast(postsCollected,postCollected);
+                that.showModal(postsCollected, postCollected);
+            },
+
+        })
+
     },
     showModal: function (postsCollected, postCollected) {
         var that = this;
@@ -72,23 +94,23 @@ Page({
             duration: 1000
         })
     },
-    onShare:function(event){
+    onShare: function (event) {
         //wx.clearStorageSync();//清空所有缓存
         //wx.removeStorageSync('key');//移除key所对应的缓存
-        var itemList=["分享到微信好友","分享到微博"];
+        var itemList = ["分享到微信好友", "分享到微博"];
         wx.showActionSheet({
-            itemList:itemList,
-            itemColor:"#405f80",
-            success: function(res) {
+            itemList: itemList,
+            itemColor: "#405f80",
+            success: function (res) {
                 wx.showModal({
-                    title:"用户 "+itemList[res.tapIndex],//tapIndex 用户点击的按钮，从上到下的顺序，从0开始
-                    content:"用户是否取消?"+res.cancel+"现在无法实现分享功能哦"
+                    title: "用户 " + itemList[res.tapIndex],//tapIndex 用户点击的按钮，从上到下的顺序，从0开始
+                    content: "用户是否取消?" + res.cancel + "现在无法实现分享功能哦"
                 })
-                },
-            
-            fail: function(res) {
+            },
+
+            fail: function (res) {
                 console.log(res.errMsg)
             }
         })
-     }
+    }
 })
