@@ -1,6 +1,9 @@
 var postsData = require('../../../data/posts-data.js');
 
 Page({
+    data: {
+        isMusicPlaying: false
+    },
     onLoad: function (option) {
         var postId = option.id;
         //console.log(id);
@@ -30,7 +33,8 @@ Page({
         //     name:"wuqingvika",
         //     age:23
         // })
-        this.getPostCollectedAsync();
+        // this.getPostCollectedAsync();异步步
+        this.getPostCollectedSync();
 
     },
     getPostCollectedSync: function () {//同步
@@ -112,5 +116,28 @@ Page({
                 console.log(res.errMsg)
             }
         })
+    },
+    onMusicTap: function (event) {
+        var ifMusicPlay = this.data.isMusicPlaying;
+        var postCurrentId=this.data.postCurrentId;
+        var postData=postsData.postList[postCurrentId];
+        if (ifMusicPlay) {
+            this.setData({
+                isMusicPlaying:false
+            });
+              wx.pauseBackgroundAudio();
+        } else {
+            //this.data.isMusicPlaying=true;不能用这种方法 不然页面获取不到
+             this.setData({
+                isMusicPlaying:true
+            });
+            wx.playBackgroundAudio({
+                coverImgUrl:postData.music.coverImgUrl,
+                title: postData.music.title,
+                dataUrl:postData.music.dataUrl
+
+            })
+        }
+
     }
 })
